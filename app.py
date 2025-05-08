@@ -15,7 +15,8 @@ df['Tanggal'] = pd.to_datetime(df['Tanggal'])
 df = df.sort_values('Tanggal')
 
 # Ambil data 6 bulan terakhir dari tanggal terakhir yang tersedia
-last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=6))]
+last_6_months['Bulan'] = last_6_months['Tanggal'].dt.to_period('M')
+monthly_data = last_6_months.groupby('Bulan')['Total_Pemakaian'].sum().reset_index()
 
 # Tampilkan data mentah (opsional)
 st.subheader("Data 6 Bulan Terakhir")
