@@ -21,10 +21,10 @@ last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=
 st.subheader("Data 6 Bulan Terakhir")
 st.write(last_6_months)
 
-# Buat line chart
+# Buat bar chart
 st.subheader("Grafik Total Pemakaian")
 fig, ax = plt.subplots()
-ax.plot(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'], marker='o', linestyle='-')
+ax.bar(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'])
 ax.set_xlabel("Tanggal")
 ax.set_ylabel("Total Pemakaian")
 ax.set_title("Total Pemakaian Selama 6 Bulan Terakhir")
