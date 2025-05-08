@@ -23,10 +23,10 @@ st.subheader("Data 6 Bulan Terakhir")
 st.write(last_6_months)
 
 # Buat bar chart
-st.subheader("Grafik Total Pemakaian")
+st.subheader("Grafik Total Pemakaian per Bulan")
 fig, ax = plt.subplots()
-ax.bar(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'])
-ax.set_xlabel("Tanggal")
+ax.bar(monthly_data['Bulan'].astype(str), monthly_data['Total_Pemakaian'])
+ax.set_xlabel("Bulan")
 ax.set_ylabel("Total Pemakaian")
 ax.set_title("Total Pemakaian Selama 6 Bulan Terakhir")
 plt.xticks(rotation=45)
