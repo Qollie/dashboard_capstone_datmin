@@ -17,12 +17,7 @@ df = df.sort_values('Tanggal')
 # Ambil data 6 bulan terakhir dari tanggal terakhir yang tersedia
 last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=6))]
 
-# Tampilkan data mentah
-st.subheader("Data 6 Bulan Terakhir")
-st.write(last_6_months)
-
-# Bar Chart Interaktif
-st.subheader("Bar Chart Interaktif per Hari")
+# Bar Chart
 fig_bar = px.bar(
     last_6_months,
     x='Tanggal',
@@ -31,10 +26,13 @@ fig_bar = px.bar(
     title='Total Pemakaian Harian Selama 6 Bulan Terakhir'
 )
 fig_bar.update_xaxes(tickangle=45)
+fig_bar.update_layout(
+    plot_bgcolor='white',
+    paper_bgcolor='white'
+)
 st.plotly_chart(fig_bar, use_container_width=True)
 
-# Line Chart Interaktif
-st.subheader("Line Chart Interaktif per Hari")
+# Line Chart
 fig_line = px.line(
     last_6_months,
     x='Tanggal',
@@ -44,4 +42,8 @@ fig_line = px.line(
     title='Total Pemakaian Harian Selama 6 Bulan Terakhir'
 )
 fig_line.update_xaxes(tickangle=45)
+fig_line.update_layout(
+    plot_bgcolor='white',
+    paper_bgcolor='white'
+)
 st.plotly_chart(fig_line, use_container_width=True)
