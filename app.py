@@ -19,7 +19,7 @@ last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=
 
 # Grafik 1: Bar Chart - Total Pemakaian per Hari
 st.subheader("Grafik Total Pemakaian per Hari")
-fig, ax = plt.subplots(figsize=(12, 5))
+fig, ax = plt.subplots(figsize=(16, 6))
 ax.bar(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'])
 ax.set_xlabel("Tanggal")
 ax.set_ylabel("Total Pemakaian")
@@ -29,7 +29,7 @@ st.pyplot(fig)
 
 # Grafik 2: Line Chart - Total Pemakaian per Hari
 st.subheader("Grafik Line Total Pemakaian per Hari")
-fig, ax = plt.subplots(figsize=(12, 5))
+fig, ax = plt.subplots(figsize=(16, 6))
 ax.plot(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'], marker='o', linestyle='-', color='b')
 ax.set_xlabel("Tanggal")
 ax.set_ylabel("Total Pemakaian")
