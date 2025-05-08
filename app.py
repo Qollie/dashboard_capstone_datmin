@@ -17,10 +17,6 @@ df = df.sort_values('Tanggal')
 # Ambil data 6 bulan terakhir dari tanggal terakhir yang tersedia
 last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=6))]
 
-# Tampilkan data mentah (opsional)
-st.subheader("Data 6 Bulan Terakhir")
-st.write(last_6_months)
-
 # Grafik 1: Bar Chart - Total Pemakaian per Hari
 st.subheader("Grafik Total Pemakaian per Hari")
 fig, ax = plt.subplots()
