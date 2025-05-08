@@ -7,23 +7,28 @@ st.title("Dashboard Pemakaian 6 Bulan Terakhir")
 
 # Load data
 df = pd.read_csv("data dashboard.csv")
-
-# Konversi kolom tanggal ke format datetime
 df['Tanggal'] = pd.to_datetime(df['Tanggal'])
-
-# Urutkan berdasarkan tanggal
 df = df.sort_values('Tanggal')
-
-# Ambil data 6 bulan terakhir dari tanggal terakhir yang tersedia
 last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=6))]
 
-# Warna teks dan grid
+# Konfigurasi layout dengan teks dan grid jelas
 layout_style = dict(
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(color='black'),
-    xaxis=dict(showgrid=True, gridcolor='lightgray'),
-    yaxis=dict(showgrid=True, gridcolor='lightgray')
+    title_font=dict(color='black'),
+    xaxis=dict(
+        title_font=dict(color='black'),
+        tickfont=dict(color='black'),
+        showgrid=True,
+        gridcolor='lightgray'
+    ),
+    yaxis=dict(
+        title_font=dict(color='black'),
+        tickfont=dict(color='black'),
+        showgrid=True,
+        gridcolor='lightgray'
+    )
 )
 
 # Bar Chart
