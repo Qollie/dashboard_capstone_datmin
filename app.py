@@ -18,7 +18,7 @@ df = df.sort_values('Tanggal')
 last_6_months = df[df['Tanggal'] >= (df['Tanggal'].max() - pd.DateOffset(months=6))]
 
 # Grafik 1: Bar Chart - Total Pemakaian per Hari
-st.subheader("Grafik Total Pemakaian per Hari")
+st.subheader("Grafik Batang Total Pemakaian per Hari")
 fig, ax = plt.subplots(figsize=(16, 6))
 ax.bar(last_6_months['Tanggal'], last_6_months['Total_Pemakaian'])
 ax.set_xlabel("Tanggal")
